@@ -135,15 +135,15 @@ func SetupPath(ctx Context, config Config) {
 			continue
 		}
 
-		err := os.Symlink("../.path_interposer", filepath.Join(myPath, name))
+		//err := os.Symlink("../.path_interposer", filepath.Join(myPath, name))
 		// Intentionally ignore existing files -- that means that we
 		// just created it, and the first one should win.
-		if err != nil && !os.IsExist(err) {
-			ctx.Fatalln("Failed to create symlink:", err)
-		}
+		//if err != nil && !os.IsExist(err) {
+		//	ctx.Fatalln("Failed to create symlink:", err)
+		//}
 	}
 
 	myPath, _ = filepath.Abs(myPath)
-	config.Environment().Set("PATH", myPath)
+	//config.Environment().Set("PATH", myPath)
 	config.pathReplaced = true
 }
